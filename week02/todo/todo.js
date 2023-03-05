@@ -42,11 +42,11 @@ const TodoController = () => {
         newTodo.setText('...');
 
         scheduler.add( ok =>
-           fortuneService( text => {
-                   newTodo.setText(text);
-                   ok();
-               }
-           )
+            fortuneService( text => {
+                    newTodo.setText(text);
+                    ok();
+                }
+            )
         );
 
     };
@@ -98,8 +98,8 @@ const TodoItemsView = (todoController, rootElement) => {
 
         todo.onTextValidChanged(
             valid => valid
-              ? inputElement.classList.remove("invalid")
-              : inputElement.classList.add("invalid")
+                ? inputElement.classList.remove("invalid")
+                : inputElement.classList.add("invalid")
         );
 
         rootElement.appendChild(deleteButton);
@@ -117,7 +117,7 @@ const TodoItemsView = (todoController, rootElement) => {
 const TodoTotalView = (todoController, numberOfTasksElement) => {
 
     const render = () =>
-        numberOfTasksElement.innerText = "" + todoController.numberOfTodos();
+        numberOfTasksElement.textContent = "" + todoController.numberOfTodos();
 
     // binding
 
@@ -128,7 +128,7 @@ const TodoTotalView = (todoController, numberOfTasksElement) => {
 const TodoOpenView = (todoController, numberOfOpenTasksElement) => {
 
     const render = () =>
-        numberOfOpenTasksElement.innerText = "" + todoController.numberOfopenTasks();
+        numberOfOpenTasksElement.textContent = "" + todoController.numberOfopenTasks();
 
     // binding
 
