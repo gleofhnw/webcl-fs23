@@ -6,15 +6,37 @@
     <style>
 
         #one {
-            background: blue;
-            width:      100px;
-            height:     100px;
+            width:      0;
+            height:     0;
+            border-style: solid;
+            border-color: transparent transparent transparent purple;
+            --triangle-size: 100px;
+            --triangle-half-size: calc(var(--triangle-size) / 2);
+            border-width: var(--triangle-half-size)
+                          0
+                          var(--triangle-half-size)
+                          var(--triangle-size);
+            /*outline:      1px solid lime;*/
+            /*box-shadow:   0 0 1em 0 dodgerblue;*/
+            filter: drop-shadow(.1em .4em 1em black)
+                    drop-shadow(-.05em -.1em 1em grey)
+        ;
+
         }
 
         #two {
             background: red;
             width:      100px;
             height:     100px;
+            clip-path:  polygon(0 0, 100% 50%, 0 100%);
+            /*box-shadow:   0 0 1em 0 dodgerblue;*/
+            /*filter: drop-shadow(.1em .4em 1em black)*/
+            /*        drop-shadow(-.05em -.1em 1em grey)*/
+
+        }
+        #outer {
+            filter: drop-shadow(.1em .4em 1em black)
+                    drop-shadow(-.05em -.1em 1em grey)
         }
 
     </style>
@@ -22,7 +44,9 @@
 <body>
 
 <div id="one"> </div>
-<div id="two"> </div>
+<div id="outer">
+    <div id="two"></div>
+</div>
 
 </body>
 </html>
