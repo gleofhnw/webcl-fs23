@@ -6,15 +6,26 @@
     <style>
 
         #one {
-            background: blue;
-            width:      100px;
-            height:     100px;
+            --triangle-size: 100px;
+            width:      0px;
+            height:     0px;
+            border-style: solid;
+            border-width:   calc(var(--triangle-size) / 2)
+                            0
+                            calc(var(--triangle-size) / 2)
+                            var(--triangle-size);
+            border-color: transparent transparent transparent blue;
+            /*box-shadow: 10px 10px 5px 5px;*/
+            filter: drop-shadow(10px 10px 5px black);
         }
 
         #two {
-            background: red;
+
             width:      100px;
             height:     100px;
+            background: red;
+            clip-path: polygon(0 0, 100% 50%, 0% 100%);
+
         }
 
     </style>
