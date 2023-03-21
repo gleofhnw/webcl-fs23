@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grades Calculator</title>
+    <style>
+
+        .two-column-layout {
+            display:                grid;
+            grid-template-columns:  max-content max-content;
+            gap:                    0.5em 2em;
+        }
+
+        :invalid {
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="two-column-layout">
+
+        <script>
+            const calculateAverage = gradeArray => {
+                let value = gradeArray.reduce( (acc, cur) => acc + cur, 0) / gradeArray.length;
+                value = Math.floor(value * 10) / 10; //round to one decimal
+                return value;
+            };
+
+            const grades = [6.0, 5.5, 5.0];
+
+
+
+            const updateAll = () => {
+                const grades = [...document.querySelectorAll("input[id$='-grade']")].map(it => Number(it.value));
+                const newAverage = calculateAverage(grades);
+                document.getElementById("outputGradeAverage").textContent = String(newAverage);
+            };
+
+            const writeModuleBla = (moduleId, moduleName, moduleGrade) => {
+                document.writeln(`
+        <div>
+            <label for="${moduleId}-label"></label>
+            <input  id="${moduleId}-label" type="text" value="${moduleName}">
+        </div>
+        <div>
+            <label for="${moduleId}-grade"></label>
+            <input  id="${moduleId}-grade" type="number" step="0.1" min="1.0" max="6.0" value="${moduleGrade}" required oninput="updateAll();">
+        </div>
+            `);
+            };
+
+            writeModuleBla("modul-1", "Web Clients",        "6.0");
+            writeModuleBla("modul-2", "Web Programming",    "5.5");
+            writeModuleBla("modul-3", "Web Engineering",    "5.0");
+
+
+
+        </script>
+
+        <script>
+            const gradeAverage = String(calculateAverage(grades));
+
+            document.writeln(`
+
+            <div>Durchschnitt</div>
+            <div><output id="outputGradeAverage">${gradeAverage}</output></div>
+
+            `);
+
+        </script>
+
+
+
+
+    </div>
+
+</body>
+</html>
