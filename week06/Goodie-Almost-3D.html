@@ -8,7 +8,7 @@
           background:   #1f1f56;
       }
       main {
-          perspective: 200vw;
+          perspective: 200vmax;
       }
       main .starwars {
           --angle:          0;
@@ -47,7 +47,7 @@
 <script>
     const starwars = document.querySelector(".starwars");
     const range    = document.getElementById("range");
-    range.oninput  = () => starwars.style.setProperty("--angle", range.value + "deg");
+    range.oninput  = _ => starwars.style.setProperty("--angle", range.value + "deg");
 
 </script>
 

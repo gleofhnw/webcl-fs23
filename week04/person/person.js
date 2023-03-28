@@ -1,5 +1,5 @@
 import { ObservableList, Observable }                   from "../kolibri/observable.js";
-import { Attribute, LABEL }                             from "../kolibri/presentationModel.js";
+import {Attribute, EDITABLE, LABEL}                     from "../kolibri/presentationModel.js";
 import { personListItemProjector, personFormProjector } from "./personProjector.js";
 
 export { MasterController, MasterView, SelectionController, DetailView }
@@ -47,7 +47,9 @@ const MasterView = (masterController, selectionController, rootElement) => {
 const NoPerson = (() => { // one time creation, singleton
     const johnDoe = Person();
     johnDoe.firstname.setConvertedValue("");
-    johnDoe.lastname.setConvertedValue("");
+    johnDoe.lastname .setConvertedValue("");
+    johnDoe.firstname.getObs(EDITABLE).setValue(false);
+    johnDoe.lastname .getObs(EDITABLE).setValue(false);
     return johnDoe;
 })();
 
