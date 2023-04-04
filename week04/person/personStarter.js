@@ -7,7 +7,7 @@ const selectionController = SelectionController();
 // create the sub-views, incl. binding
 
 MasterView(masterController, selectionController, document.getElementById('masterContainer'));
-DetailView(selectionController, document.getElementById('detailContainer'));
+DetailView(selectionController,                   document.getElementById('detailContainer'));
 
 // binding of the main view
 
