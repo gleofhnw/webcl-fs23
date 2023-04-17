@@ -5,24 +5,24 @@
     <title>Block vs Inline</title>
     <style>
         #block-parent  {
-            /*outline: 2px solid red;*/
+            outline: 2px solid red;
         }
         #block-parent div {
-            /*background-color: orange;*/
+            background-color: orange;
             /*height:      3em;*/
             /*width:      30em;*/
-            /*margin:      1em;*/
-            /*padding:     1em;*/
+            margin:      1em;
+            padding:     1em;
         }
 
         #inline-parent {
-            /*outline: 2px solid red;*/
+            outline: 2px solid red;
         }
         #inline-parent span {
-            /*background-color: orange;*/
-            /*height:      3em;*/
-            /*width:      30em;*/
-            /*margin:      1em;*/
+            background-color: orange;
+            height:      3em;
+            width:      30em;
+            margin:      1em;
             /*padding:     1em;*/
         }
 
@@ -33,7 +33,7 @@
   <div id="block-parent">
 
       <div></div>
-<!--
+<!---->
       <div>
           While in normal flow mode:
           the height of the block level element is determined by
@@ -44,11 +44,11 @@
           Children are layed out top to bottom (for left-to-right
           top-to-bottom languages).
       </div>
--->
+
   </div>
 
   <span id="inline-parent">
-<!--
+<!---->
       While in normal flow mode:
       <span><em>height</em> and <em>width</em> is determined by the
       content and the children, </span>
@@ -58,7 +58,7 @@
       block-dependent property will be blissfully ignored.
       Paddings are problematic since they are ignored for the text flow,
       which leads to behavior that is difficult to predict.</span>
--->
+
   </span>
 </body>
 </html>
