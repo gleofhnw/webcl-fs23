@@ -167,7 +167,7 @@
         <button class="button">animate</button>
       </div>
     </div>
-    <img src="https://cdn.discordapp.com/attachments/745184438203187221/1099277604994940978/Screenshot_2023-04-22_121600.png">
+    <img src="https://cdn.discordapp.com/attachments/745184438203187221/1099277604994940978/Screenshot_2023-04-22_121600.png" alt="bezier animation 1">
   </div>
 
   <div class="single-wave">
@@ -182,7 +182,7 @@
         <button class="button">animate</button>
       </div>
     </div>
-    <img src="https://cdn.discordapp.com/attachments/745184438203187221/1099279030542413844/Screenshot_2023-04-22_122205.png">
+    <img src="https://cdn.discordapp.com/attachments/745184438203187221/1099279030542413844/Screenshot_2023-04-22_122205.png" alt="bezier animation 2">
   </div>
 
   <h2>1 cubic-bezier breite</h2>
@@ -208,13 +208,12 @@
 
   const buttons = document.querySelectorAll(".button");
 
-  buttons.forEach(button => {
-    button.addEventListener("click", function() {
-      const wave = this.closest(".single-wave").querySelector(".wave");
-      wave.classList.remove("full");
-      setTimeout(() => wave.classList.add("full"), 0);
-    });
-  });
+  buttons.forEach(button =>
+          button.addEventListener("click", function () {
+            const wave = this.closest(".single-wave").querySelector(".wave");
+            wave.classList.remove("full");
+            setTimeout(() => wave.classList.add("full"), 0);
+          }));
 
 
 </script>
