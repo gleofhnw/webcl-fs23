@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bezier</title>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin:  0;
+      padding: 0;
+    }
+    body {
+      color: white;
+      margin: 4rem;
+      background-color: rebeccapurple;
+    }
+    svg {
+      display: block;
+      filter: drop-shadow(0px 0px 1em cyan);
+    }
+    .wave {
+      stroke-width:   3px;
+      stroke-opacity: 1;
+      stroke-linecap: round;
+      stroke:         cyan;
+      stroke-dasharray: 0 104 ;
+    }
+    .wave.full {
+      stroke-dasharray: 100 104;
+      stroke-width:     3px;
+      transition:  3s var(--cubic_bezier);
+    }
+
+    #wave_1 {
+      --cubic_bezier: cubic-bezier(1,0,0,1);
+    }
+
+    #wave_2 {
+      --cubic_bezier: cubic-bezier(0,0.5,0.5,0);
+    }
+
+    .sea {
+      width: 400px;
+      height: 400px;
+    }
+
+    .single-wave {
+      display: flex;
+      flex-direction: row;
+
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .single-wave img {
+      margin-left: 3em;
+      width: 300px;
+      height: 300px;
+    }
+
+    .hover_cubier {
+      background: white;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 200px;
+    }
+
+    .hover_cubier div {
+      color: black;
+    }
+
+    .hover_cubier:hover {
+      width: 600px;
+      height: 200px;
+      transition: height 3s cubic-bezier(.35,.27,.75,1.36), width 3s cubic-bezier(.37,-0.47,.47,1);
+    }
+
+    .hover_cubier_width {
+      background: white;
+      width: 100px;
+      height: 100px;
+      margin-bottom: 30px;
+    }
+
+    .hover_cubier_width div {
+      color: black;
+    }
+
+    .hover_cubier_width:hover {
+      width: 600px;
+      transition: 2s cubic-bezier(.42,0,.59,1);
+    }
+
+    .hover_cubier_color {
+      background: white;
+      width: 100px;
+      height: 100px;
+    }
+
+    .hover_cubier_color:hover {
+      background: red;
+      transition: 1s cubic-bezier(.4,0,.6,1);
+    }
+
+    .hover_cubier_color_actually {
+      background: white;
+      width: 100px;
+      height: 100px;
+    }
+
+    .hover_cubier_color_actually:hover {
+      background: red;
+      transition: 1s ease-in-out;
+    }
+
+  </style>
+</head>
+<body>
+
+<main>
+  <h2>SVG Quadratic, Single</h2>
+  <div>
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 0 100 Q 50 200, 100 100" stroke="black" fill="transparent"/>
+    </svg>
+  </div>
+
+  <h2>SVG Quadratic, Conjoined</h2>
+  <div>
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 100 Q 50 200, 100 100 T 200 100" stroke="black" fill="transparent"/>
+    </svg>
+  </div>
+
+  <h2>SVG Cubic, Single</h2>
+  <div>
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 100 C 0 175, 100 175, 100 100" stroke="black" fill="transparent"/>
+    </svg>
+  </div>
+
+  <h2>SVG Cubic, Conjoined</h2>
+  <div>
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 100 C 0 175, 100 175, 100 100 S 200 25, 200 100" stroke="black" fill="transparent"/>
+    </svg>
+  </div>
+
+  <h2>SVG Cubic, Conjoined</h2>
+  <div>
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 0 100 C 0 175, 100 175, 100 100 S 0 25, 0 100" stroke="black" fill="transparent"/>
+    </svg>
+  </div>
+
+  <div class="single-wave">
+    <div>
+      <h2>Cubic Bezier</h2>
+      <div class="sea" >
+        <svg viewBox="-2 0 124 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="wave" id="wave_1" d="M 0 60 C 40 0,  80 120,  120 60" pathLength="100" />
+        </svg>
+      </div>
+      <div>
+        <button class="button">animate</button>
+      </div>
+    </div>
+    <img src="https://cdn.discordapp.com/attachments/745184438203187221/1099277604994940978/Screenshot_2023-04-22_121600.png">
+  </div>
+
+  <div class="single-wave">
+    <div>
+      <h2>Cubic Bezier</h2>
+      <div class="sea" >
+        <svg viewBox="-2 0 124 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="wave" id="wave_2" d="M 0 60 C 40 0,  80 120,  120 60" pathLength="100" />
+        </svg>
+      </div>
+      <div>
+        <button class="button">animate</button>
+      </div>
+    </div>
+    <img src="https://cdn.discordapp.com/attachments/745184438203187221/1099279030542413844/Screenshot_2023-04-22_122205.png">
+  </div>
+
+  <h2>1 cubic-bezier breite</h2>
+  <div class="hover_cubier_width">
+    <div>Hover over me!</div>
+  </div>
+
+  <h2>2 cubic-beziers gleichzeitig</h2>
+  <div class="hover_cubier">
+    <div>Hover over me!</div>
+  </div>
+
+  <h2>change color cubic-bezier</h2>
+  <div class="hover_cubier_color">
+    <div></div>
+  </div>
+
+  <h2>change color eigentlich cubic-bezier</h2>
+  <div class="hover_cubier_color_actually"></div>
+</main>
+
+<script>
+
+  const buttons = document.querySelectorAll(".button");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", function() {
+      const wave = this.closest(".single-wave").querySelector(".wave");
+      wave.classList.remove("full");
+      setTimeout(() => wave.classList.add("full"), 0);
+    });
+  });
+
+
+</script>
+
+</body>
+</html>
