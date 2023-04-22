@@ -14,6 +14,9 @@
       margin: 4rem;
       background-color: rebeccapurple;
     }
+
+    /* CSS for waves */
+
     svg {
       display: block;
       filter: drop-shadow(0px 0px 1em cyan);
@@ -44,6 +47,8 @@
       height: 400px;
     }
 
+    /* CSS for images for waves */
+
     .single-wave {
       display: flex;
       flex-direction: row;
@@ -58,38 +63,33 @@
       height: 300px;
     }
 
+    /* Example Hover Both (Width/Height) */
+
     .hover_cubier {
-      background: white;
-      width: 100px;
-      height: 100px;
-      margin-bottom: 200px;
-    }
-
-    .hover_cubier div {
-      color: black;
-    }
-
-    .hover_cubier:hover {
-      width: 600px;
-      height: 200px;
-      transition: height 3s cubic-bezier(.35,.27,.75,1.36), width 3s cubic-bezier(.37,-0.47,.47,1);
-    }
-
-    .hover_cubier_width {
       background: white;
       width: 100px;
       height: 100px;
       margin-bottom: 30px;
     }
 
-    .hover_cubier_width div {
+    .hover_cubier div {
       color: black;
     }
 
-    .hover_cubier_width:hover {
+    #hover_cubier_both:hover {
+      width: 600px;
+      height: 200px;
+      transition: height 3s cubic-bezier(.35,.27,.75,1.36), width 3s cubic-bezier(.37,-0.47,.47,1);
+    }
+
+    /* Example Hover only Width */
+
+    #hover_cubier_width:hover {
       width: 600px;
       transition: 2s cubic-bezier(.42,0,.59,1);
     }
+
+    /* Example Hover Change Color */
 
     .hover_cubier_color {
       background: white;
@@ -102,13 +102,15 @@
       transition: 1s cubic-bezier(.4,0,.6,1);
     }
 
-    .hover_cubier_color_actually {
+    /* Same example as prior, but with name */
+
+    .hover_cubier_color {
       background: white;
       width: 100px;
       height: 100px;
     }
 
-    .hover_cubier_color_actually:hover {
+    #hover_cubier_color_actually:hover {
       background: red;
       transition: 1s ease-in-out;
     }
@@ -184,12 +186,12 @@
   </div>
 
   <h2>1 cubic-bezier breite</h2>
-  <div class="hover_cubier_width">
+  <div class="hover_cubier" id="hover_cubier_width">
     <div>Hover over me!</div>
   </div>
 
   <h2>2 cubic-beziers gleichzeitig</h2>
-  <div class="hover_cubier">
+  <div class="hover_cubier" id="hover_cubier_both">
     <div>Hover over me!</div>
   </div>
 
@@ -199,7 +201,7 @@
   </div>
 
   <h2>change color eigentlich cubic-bezier</h2>
-  <div class="hover_cubier_color_actually"></div>
+  <div class="hover_cubier_color" id="hover_cubier_color_actually"></div>
 </main>
 
 <script>
