@@ -51,6 +51,12 @@
       height: 400px;
     }
 
+    /* CSS for SVG images */
+
+    .svg-path {
+      stroke-width: 3px;
+    }
+
     /* CSS for images for waves */
 
     .single-wave {
@@ -127,35 +133,35 @@
   <h2>SVG Quadratic, Single</h2>
   <div>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 0 100 Q 50 200, 100 100" stroke="black" fill="transparent"/>
+        <path class="svg-path" d="M 0 100 Q 50 200, 100 100" stroke="black" fill="transparent"/>
     </svg>
   </div>
 
   <h2>SVG Quadratic, Conjoined</h2>
   <div>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 0 100 Q 50 200, 100 100 T 200 100" stroke="black" fill="transparent"/>
+      <path class="svg-path" d="M 0 100 Q 50 200, 100 100 T 200 100" stroke="black" fill="transparent"/>
     </svg>
   </div>
 
   <h2>SVG Cubic, Single</h2>
   <div>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 0 100 C 0 175, 100 175, 100 100" stroke="black" fill="transparent"/>
+      <path class="svg-path" d="M 0 100 C 0 175, 100 175, 100 100" stroke="black" fill="transparent"/>
     </svg>
   </div>
 
   <h2>SVG Cubic, Conjoined</h2>
   <div>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 0 100 C 0 175, 100 175, 100 100 S 200 25, 200 100" stroke="black" fill="transparent"/>
+      <path class="svg-path" d="M 0 100 C 0 175, 100 175, 100 100 S 200 25, 200 100" stroke="black" fill="transparent"/>
     </svg>
   </div>
 
   <h2>SVG Cubic, Conjoined</h2>
   <div>
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 0 100 C 0 175, 100 175, 100 100 S 0 25, 0 100" stroke="black" fill="transparent"/>
+      <path class="svg-path" d="M 0 100 C 0 175, 100 175, 100 100 S 0 25, 0 100" stroke="black" fill="transparent"/>
     </svg>
   </div>
 
