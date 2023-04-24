@@ -50,6 +50,9 @@
     const label = document.querySelector('label[for="range"]');
     const sea   = document.querySelector('#sea');
 
+    wave.onmouseover = _evt => alert("ouch!!");
+
+
     let   waveWidth  = sea.clientWidth;
     window.addEventListener('resize', _ => waveWidth = sea.clientWidth);
 
