@@ -8,6 +8,17 @@
         main {
             margin: 3em;
         }
+        dialog {
+            border-radius: .5em;
+        }
+        dialog::backdrop {
+            background-image: linear-gradient(0deg, rebeccapurple, palegoldenrod) ;
+            opacity: .5;
+        }
+        dialog:hover::backdrop {
+            transform: rotate(180deg);
+            /*transition: transform linear 1s;*/
+        }
 
     </style>
 </head>
@@ -16,7 +27,7 @@
 <main>
 
 
-    <dialog id="favDialog">
+    <dialog id="favDialog" >
       <form method="dialog">
         <p><label>My favorite module is:
           <select>

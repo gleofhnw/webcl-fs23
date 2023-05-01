@@ -4,7 +4,42 @@
     <meta charset="UTF-8">
     <title>Animation Example</title>
     <style>
+        main {
+            --background-height: 70vh;
+            --ball-height:      6em;
+            position:           relative;
+            background-color:   blue;
+            min-height:         var(--background-height);
+        }
+        #ball {
+            position:           absolute;
+            left:               50%;
+            background-color:   white;
+            width:              var(--ball-height);
+            height:             var(--ball-height);
+            border-radius:      50%;
+        }
+        #ball:hover {
+            animation:          squash linear 1s both alternate infinite;
+        }
+        @keyframes squash {
+            0% {
+                transform:      translateY(0)
+                                scaleY(1)
+                                scaleX(1);
+            }
+            80% {
 
+                transform:      translateY(calc(0.8 * (var(--background-height) - var(--ball-height))))
+                                scaleY(1)
+                                scaleX(1);
+            }
+            100% {
+                transform:      translateY(calc(var(--background-height) - var(--ball-height)))
+                                scaleY(0.5)
+                                scaleX(1.5);
+            }
+        }
 
     </style>
 </head>
