@@ -125,6 +125,16 @@
         .week.drop {
             background-color: var(--hightlight-overlay);
         }
+
+        .heightDiff {
+            position:absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            background-color: red;
+            opacity: 0.2;
+            z-index: 5;
+        }
     </style>
 
 </head>
@@ -450,7 +460,38 @@
 
         const topicsOverWeeks = document.getElementById("topicsOverWeeks");
         topicsOverWeeks.replaceWith(root);
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const weeksDevHtml = document.querySelectorAll(".week.developer");
+            weeksDevHtml.forEach(week => {
+                const assignmentsThisWeek = week.querySelectorAll(".assignment.project");
+                let assignSum = 0;
+                assignmentsThisWeek.forEach(assignment => {
+                    const assignmentHeight = assignment.style.height;
+                    let assignmentHeightNum = assignmentHeight.substring(0, assignmentHeight.length - 2);
+                    assignmentHeightNum = parseInt(assignmentHeightNum);
+                    assignSum += assignmentHeightNum;
+                });
+
+                const sollHeight = week.querySelector(".soll").style.height;
+                const sollHeightNum = sollHeight.substring(0, sollHeight.length - 2);
+                const heightDiff = sollHeightNum - assignSum;
+
+                console.log(heightDiff);
+
+                if (heightDiff < 0) {
+                    const height = heightDiff * -1;
+                    const heightDiffElement = dom(`<div class="heightDiff" style="height:${height}px;"></div>`);
+                    week.appendChild(heightDiffElement);
+                }
+            });
+        });
     };
+
+    // Calculate and render height difference of soll and given assignments
+
+
+
 
     render();
 
